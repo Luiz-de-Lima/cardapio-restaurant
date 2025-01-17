@@ -1,13 +1,13 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import { Categorias } from "@/components/Categorias/Categorias";
 import { CampoBusca } from "@/components/CampoBusca/CampoBusca";
 import { Cards } from "@/components/Cards/Cards";
+import { Header } from "@/components/Header/Home";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Home />
+      <Header />
       <Categorias />
       <CampoBusca />
       <section>

@@ -1,0 +1,18 @@
+.container_card {
+  display: flex;
+  gap: 10px;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  padding: 10px 0;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.button img {
+  width: 20px;
+  height: auto;
+}
