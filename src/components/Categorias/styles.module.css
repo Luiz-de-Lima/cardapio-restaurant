@@ -14,10 +14,25 @@
   border-radius: 5px;
   transition: 0.2s;
 }
-.button:hover {
-  background-color: var(--goldenrod);
-}
+
 .button img {
+  width: 20px;
+  height: auto;
+}
+.acenderbtn {
+  background-color: var(--goldenrod);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  padding: 10px 0;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+.acenderbtn img {
   width: 20px;
   height: auto;
 }

@@ -7,17 +7,19 @@ import { Header } from "@/components/Header/Home";
 
 import { produtosEntradas } from "@/services/services";
 import { filtrarProdutos } from "@/services/services";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [produtoInicial, setProdutoInicial] = useState([]);
   const [itemSelecionado, setItemSelecionado] = useState(null);
+  const [botaoClicado, setBotaoClicado] = useState(null);
 
   useEffect(() => {
     setProdutoInicial(produtosEntradas);
   }, []);
   const handleFiltro = (categoria) => {
     setItemSelecionado(filtrarProdutos(categoria));
+    setBotaoClicado(categoria);
   };
 
   return (
@@ -25,7 +27,7 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
 
-        <Categorias handleClick={handleFiltro} />
+        <Categorias handleClick={handleFiltro} botaoClicado={botaoClicado} />
         <CampoBusca />
         <h2>Cardapio</h2>
         <section className={styles.section_card}>

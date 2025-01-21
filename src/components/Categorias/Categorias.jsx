@@ -8,8 +8,8 @@ import bebidas from "../../../public/bebidas.png";
 import salada from "../../../public/salada.png";
 import sobremesa from "../../../public/sobremesa.png";
 import estilos from "./styles.module.css";
-// para fazer, filtrar os produtos, a pagina tem que iniciar com os pratos de entrada
-export const Categorias = ({ handleClick }) => {
+
+export const Categorias = ({ handleClick, botaoClicado }) => {
   return (
     <section className={estilos.container_card}>
       <button
@@ -20,7 +20,12 @@ export const Categorias = ({ handleClick }) => {
         <span>Entradas</span>
       </button>
 
-      <button className={estilos.button} onClick={() => handleClick("Massas")}>
+      <button
+        className={
+          botaoClicado === "Massas" ? estilos.acenderbtn : estilos.button
+        }
+        onClick={() => handleClick("Massas")}
+      >
         <Image src={massa} alt="massas" />
         <span>Massas</span>
       </button>
