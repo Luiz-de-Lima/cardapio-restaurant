@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Cardapio de Restuirante",
+  title: "Cardapio de Restaurante",
   description: "spa de um cardapio de restaurante ",
 };
 

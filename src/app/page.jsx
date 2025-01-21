@@ -1,30 +1,59 @@
+"use client";
 import styles from "./page.module.css";
 import { Categorias } from "@/components/Categorias/Categorias";
 import { CampoBusca } from "@/components/CampoBusca/CampoBusca";
 import { Cards } from "@/components/Cards/Cards";
 import { Header } from "@/components/Header/Home";
-import { produtos } from "../../dados/data_produtos";
+
+import { produtosEntradas } from "@/services/services";
+import { filtrarProdutos } from "@/services/services";
+import { use, useEffect, useState } from "react";
 
 export default function Home() {
+  const [produtoInicial, setProdutoInicial] = useState([]);
+  const [itemSelecionado, setItemSelecionado] = useState(null);
+
+  useEffect(() => {
+    setProdutoInicial(produtosEntradas);
+  }, []);
+  const handleFiltro = (categoria) => {
+    setItemSelecionado(filtrarProdutos(categoria));
+  };
+
   return (
-    <main className={styles.main}>
-      <Header />
-      <Categorias />
-      <CampoBusca />
-      <section>
+    <>
+      <main className={styles.main}>
+        <Header />
+
+        <Categorias handleClick={handleFiltro} />
+        <CampoBusca />
         <h2>Cardapio</h2>
-        {produtos.map((produto, index) => (
-          <div className={styles.home_container} key={index}>
-            <Cards
-              nome={produto.nome}
-              descricao={produto.descricao}
-              imagem={produto.imagem}
-              preco={produto.preco}
-              categoria={produto.categoria}
-            />
-          </div>
-        ))}
-      </section>
-    </main>
+        <section className={styles.section_card}>
+          {itemSelecionado
+            ? itemSelecionado.map((produto) => (
+                <div className={styles.home_container} key={produto.id}>
+                  <Cards
+                    nome={produto.nome}
+                    descricao={produto.descricao}
+                    imagem={produto.imagem}
+                    preco={produto.preco}
+                    categoria={produto.categoria}
+                  />
+                </div>
+              ))
+            : produtoInicial.map((produto) => (
+                <div className={styles.home_container} key={produto.id}>
+                  <Cards
+                    nome={produto.nome}
+                    descricao={produto.descricao}
+                    imagem={produto.imagem}
+                    preco={produto.preco}
+                    categoria={produto.categoria}
+                  />
+                </div>
+              ))}
+        </section>
+      </main>
+    </>
   );
 }

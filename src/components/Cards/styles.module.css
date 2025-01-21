@@ -1,7 +1,43 @@
-.cardContainer {
-  height: 250px;
+.card_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 250px;
+  border: 1px solid var(--goldenrod);
+  border-radius: 10px;
+  background: var(--white);
+  border: 1px solid #ccc;
+}
+.figure {
+  height: auto;
+  max-height: 250px;
+  overflow: hidden;
+}
+.figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
 }
 .cardContent {
-  height: 150px;
+  max-height: 150px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  gap: 5px;
+}
+
+/* para fazer formatar os cards */
+.paragraph {
+  font-size: 12px;
+}
+.smallText {
+  color: var(--goldenrod);
+  font-weight: 400;
+  font-size: 14px;
+}
+.span {
+  text-align: right;
+  font-weight: 600;
 }
