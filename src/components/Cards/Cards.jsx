@@ -2,7 +2,7 @@ import React from "react";
 import estilos from "./styles.module.css";
 import Image from "next/image";
 
-export const Cards = ({ id, nome, categoria, preco, descricao, imagem }) => {
+export const Cards = ({ produto }) => {
   const formatMoeda = (moeda) => {
     return new Intl.NumberFormat("pt-BR", {
       style: "currency",
@@ -10,17 +10,21 @@ export const Cards = ({ id, nome, categoria, preco, descricao, imagem }) => {
     }).format(moeda);
   };
   return (
-    <div className={estilos.cardContainer} id={id}>
+    <div className={estilos.cardContainer} key={produto.id}>
       <div className={estilos.card_item}>
         <figure className={estilos.figure}>
-          <Image src={imagem} alt={nome} className={estilos.image} />
+          <Image
+            src={produto.imagem}
+            alt={produto.nome}
+            className={estilos.image}
+          />
         </figure>
         <div className={estilos.cardContent}>
-          <h3 className={estilos.subtitle}>{nome}</h3>
-          <small className={estilos.smallText}>{categoria}</small>
-          <p className={estilos.paragraph}>{descricao}</p>
+          <h3 className={estilos.subtitle}>{produto.nome}</h3>
+          <small className={estilos.smallText}>{produto.categoria}</small>
+          <p className={estilos.paragraph}>{produto.descricao}</p>
 
-          <span className={estilos.span}>{formatMoeda(preco)}</span>
+          <span className={estilos.span}>{formatMoeda(produto.preco)}</span>
         </div>
       </div>
     </div>

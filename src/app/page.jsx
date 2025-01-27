@@ -5,20 +5,31 @@ import { CampoBusca } from "@/components/CampoBusca/CampoBusca";
 import { Cards } from "@/components/Cards/Cards";
 import { Header } from "@/components/Header/Home";
 
-import { produtosEntradas } from "@/services/services";
-import { filtrarProdutos } from "@/services/services";
+import {
+  produtosEntradas,
+  filtrarProdutos,
+  buscarProduto,
+} from "@/services/services";
+
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [produtoInicial, setProdutoInicial] = useState([]);
-  const [itemSelecionado, setItemSelecionado] = useState(null);
+  const [produtoInicial, setProdutoInicial] = useState(produtosEntradas);
   const [botaoClicado, setBotaoClicado] = useState(null);
+  const [itemFiltrado, setItemfiltrado] = useState("");
 
-  useEffect(() => {
-    setProdutoInicial(produtosEntradas);
-  }, []);
+  const handleProdutoFiltrado = (itemDigitado) => {
+    if (itemDigitado != 0) {
+      setItemfiltrado(itemDigitado);
+      itemFiltrado.length >= 2 &&
+        setProdutoInicial(buscarProduto(itemFiltrado));
+    } else {
+      setItemfiltrado("");
+      setProdutoInicial(produtosEntradas);
+    }
+  };
   const handleFiltro = (categoria) => {
-    setItemSelecionado(filtrarProdutos(categoria));
+    setProdutoInicial(filtrarProdutos(categoria));
     setBotaoClicado(categoria);
   };
 
@@ -28,32 +39,17 @@ export default function Home() {
         <Header />
 
         <Categorias handleClick={handleFiltro} botaoClicado={botaoClicado} />
-        <CampoBusca />
+        <CampoBusca
+          onBuscar={handleProdutoFiltrado}
+          textoBuscado={itemFiltrado}
+        />
         <h2>Cardapio</h2>
         <section className={styles.section_card}>
-          {itemSelecionado
-            ? itemSelecionado.map((produto) => (
-                <div className={styles.home_container} key={produto.id}>
-                  <Cards
-                    nome={produto.nome}
-                    descricao={produto.descricao}
-                    imagem={produto.imagem}
-                    preco={produto.preco}
-                    categoria={produto.categoria}
-                  />
-                </div>
-              ))
-            : produtoInicial.map((produto) => (
-                <div className={styles.home_container} key={produto.id}>
-                  <Cards
-                    nome={produto.nome}
-                    descricao={produto.descricao}
-                    imagem={produto.imagem}
-                    preco={produto.preco}
-                    categoria={produto.categoria}
-                  />
-                </div>
-              ))}
+          {produtoInicial.map((produto) => (
+            <div className={styles.home_container} key={produto.id}>
+              <Cards produto={produto} />
+            </div>
+          ))}
         </section>
       </main>
     </>

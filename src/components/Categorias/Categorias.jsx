@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
 import entrada from "../../../public/entrada.png";
 import massa from "../../../public/massa.png";
 import carne from "../../../public/carne.png";

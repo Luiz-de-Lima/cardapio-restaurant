@@ -11,7 +11,7 @@
   left: 15px;
   transform: translateY(-50%);
   height: auto;
-  pointer-events: none;
+  cursor: pointer;
 }
 .campoBusca_container input {
   font-size: 14px;
