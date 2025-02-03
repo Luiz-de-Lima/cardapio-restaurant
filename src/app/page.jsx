@@ -11,7 +11,7 @@ import {
   buscarProduto,
 } from "@/services/services";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [produtoInicial, setProdutoInicial] = useState(produtosEntradas);

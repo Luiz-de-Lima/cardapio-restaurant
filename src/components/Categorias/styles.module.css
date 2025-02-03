@@ -36,3 +36,13 @@
   width: 20px;
   height: auto;
 }
+@media  screen and (max-width: 375) {
+  .container_card {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+  }
+  .button{
+    background-color: red;
+  }
+}

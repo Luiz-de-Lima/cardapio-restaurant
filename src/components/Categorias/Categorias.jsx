@@ -28,20 +28,37 @@ export const Categorias = ({ handleClick, botaoClicado }) => {
         <Image src={massa} alt="massas" />
         <span>Massas</span>
       </button>
-      <button className={estilos.button} onClick={() => handleClick("Carnes")}>
+      <button
+        className={
+          botaoClicado === "Carnes" ? estilos.acenderbtn : estilos.button
+        }
+        onClick={() => handleClick("Carnes")}
+      >
         <Image src={carne} alt="carnes" />
         <span>Carnes</span>
       </button>
-      <button className={estilos.button} onClick={() => handleClick("Bebidas")}>
+      <button
+        className={
+          botaoClicado === "Bebidas" ? estilos.acenderbtn : estilos.button
+        }
+        onClick={() => handleClick("Bebidas")}
+      >
         <Image src={bebidas} alt="bebidas" />
         <span>Bebidas</span>
       </button>
-      <button className={estilos.button} onClick={() => handleClick("Saladas")}>
+      <button
+        className={
+          botaoClicado === "Saladas" ? estilos.acenderbtn : estilos.button
+        }
+        onClick={() => handleClick("Saladas")}
+      >
         <Image src={salada} alt="saladas" />
         <span>Saladas</span>
       </button>
       <button
-        className={estilos.button}
+        className={
+          botaoClicado === "Sobremesas" ? estilos.acenderbtn : estilos.button
+        }
         onClick={() => handleClick("Sobremesas")}
       >
         <Image src={sobremesa} alt="sobremesas" />
