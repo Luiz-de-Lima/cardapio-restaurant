@@ -1,23 +1,22 @@
 .card_item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   max-width: 250px;
+  height: auto;
   border: 1px solid var(--goldenrod);
   border-radius: 10px;
   background: var(--white);
-  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 .figure {
   height: auto;
-  max-height: 250px;
-  overflow: hidden;
 }
 .figure img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  height: 200px;
   object-fit: cover;
+  border-radius: 10px;
 }
 .cardContent {
   max-height: 150px;
@@ -40,4 +39,3 @@
   text-align: right;
   font-weight: 600;
 }
-
