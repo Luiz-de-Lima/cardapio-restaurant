@@ -10,7 +10,7 @@ import estilos from "./styles.module.css";
 
 export const Categorias = ({ handleClick, botaoClicado }) => {
   return (
-    <section className={estilos.container_card}>
+    <section className={estilos.container_categoria}>
       <button
         className={estilos.button}
         onClick={() => handleClick("Entradas")}

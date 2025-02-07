@@ -35,9 +35,9 @@ export default function Home() {
 
   return (
     <>
-      <main className={styles.main}>
-        <Header />
+      <Header />
 
+      <main className={styles.main}>
         <Categorias handleClick={handleFiltro} botaoClicado={botaoClicado} />
         <CampoBusca
           onBuscar={handleProdutoFiltrado}
