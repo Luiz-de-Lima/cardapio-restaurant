@@ -46,9 +46,7 @@ export default function Home() {
         <h2>Cardapio</h2>
         <section className={styles.section_card}>
           {produtoInicial.map((produto) => (
-            <div className={styles.home_container} key={produto.id}>
-              <Cards produto={produto} />
-            </div>
+            <Cards produto={produto} />
           ))}
         </section>
       </main>

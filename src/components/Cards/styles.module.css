@@ -19,12 +19,13 @@
   border-radius: 10px;
 }
 .cardContent {
-  max-height: 150px;
+  height: 100%;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+
   gap: 5px;
+  background: red;
 }
 
 .paragraph {

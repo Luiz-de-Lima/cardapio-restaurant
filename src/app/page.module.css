@@ -5,7 +5,6 @@
   max-width: 1024px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 10px;
   padding: 10px;
 }
@@ -18,14 +17,34 @@
   margin: 12px 0;
 }
 .section_card {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+
   padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 10px;
-  width: 100%;
-  background-color: var(--light-gray);
   border-radius: 5px;
+  /* display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+    */
+  background-color: var(--light-gray);
+}
+.menu-items-grid.one-item {
+  grid-template-columns: 1fr; /* Ocupa 100% da largura */
+}
+
+/* Estilo para quando há DOIS itens */
+.menu-items-grid.two-items {
+  grid-template-columns: 1fr 1fr; /* Duas colunas, cada uma com 50% */
+}
+
+/* Estilo para quando há TRÊS ou mais itens */
+.menu-items-grid.multiple-items {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* Colunas responsivas */
 }
 @media screen and (max-width: 768px) {
   .section_card {

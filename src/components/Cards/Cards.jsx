@@ -10,24 +10,20 @@ export const Cards = ({ produto }) => {
     }).format(moeda);
   };
   return (
-    <div className={estilos.cardContainer} key={produto.id}>
-      <div className={estilos.grid}>
-        <div className={estilos.card_item}>
-          <figure className={estilos.figure}>
-            <Image
-              src={produto.imagem}
-              alt={produto.nome}
-              className={estilos.image}
-            />
-          </figure>
-          <div className={estilos.cardContent}>
-            <h3 className={estilos.subtitle}>{produto.nome}</h3>
-            <small className={estilos.smallText}>{produto.categoria}</small>
-            <p className={estilos.paragraph}>{produto.descricao}</p>
+    <div className={estilos.card_item} key={produto.id}>
+      <figure className={estilos.figure}>
+        <Image
+          src={produto.imagem}
+          alt={produto.nome}
+          className={estilos.image}
+        />
+      </figure>
+      <div className={estilos.cardContent}>
+        <h3 className={estilos.subtitle}>{produto.nome}</h3>
+        <small className={estilos.smallText}>{produto.categoria}</small>
+        <p className={estilos.paragraph}>{produto.descricao}</p>
 
-            <span className={estilos.span}>{formatMoeda(produto.preco)}</span>
-          </div>
-        </div>
+        <span className={estilos.span}>{formatMoeda(produto.preco)}</span>
       </div>
     </div>
   );
