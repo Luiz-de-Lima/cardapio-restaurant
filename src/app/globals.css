@@ -20,3 +20,19 @@ button {
   cursor: pointer;
   border: unset;
 }
+.produto_wrapper {
+  flex-basis: calc(33.333% - 1rem);
+  flex-grow: 1;
+
+  min-width: 280px;
+  background: red;
+  /* A transição suave fica aqui */
+  transition: flex-basis 0.4s ease-in-out;
+}
+
+/* A classe para quando só houver um resultado */
+.produto_wrapper .full_width {
+  flex-basis: 100%;
+  min-width: auto; /* Reseta o min-width para permitir que ocupe 100% */
+  background: red;
+}

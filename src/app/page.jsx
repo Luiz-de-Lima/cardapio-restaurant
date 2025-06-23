@@ -16,15 +16,15 @@ import { useState } from "react";
 export default function Home() {
   const [produtoInicial, setProdutoInicial] = useState(produtosEntradas);
   const [botaoClicado, setBotaoClicado] = useState(null);
-  const [itemFiltrado, setItemfiltrado] = useState("");
+  const [termoBusca, setTermoBusca] = useState("");
 
   const handleProdutoFiltrado = (itemDigitado) => {
     if (itemDigitado != 0) {
-      setItemfiltrado(itemDigitado);
-      itemFiltrado.length >= 2 &&
-        setProdutoInicial(buscarProduto(itemFiltrado));
+      setTermoBusca(itemDigitado);
+
+      termoBusca.length >= 2 && setProdutoInicial(buscarProduto(termoBusca));
     } else {
-      setItemfiltrado("");
+      setTermoBusca("");
       setProdutoInicial(produtosEntradas);
     }
   };
@@ -32,7 +32,7 @@ export default function Home() {
     setProdutoInicial(filtrarProdutos(categoria));
     setBotaoClicado(categoria);
   };
-
+  const isSingleItem = produtoInicial.length === 1;
   return (
     <>
       <Header />
@@ -41,12 +41,21 @@ export default function Home() {
         <Categorias handleClick={handleFiltro} botaoClicado={botaoClicado} />
         <CampoBusca
           onBuscar={handleProdutoFiltrado}
-          textoBuscado={itemFiltrado}
+          textoBuscado={termoBusca}
         />
         <h2>Cardapio</h2>
-        <section className={styles.section_card}>
+        <section
+          className={`${
+            isSingleItem ? styles.singleItem : styles.section_card_container
+          }`}
+        >
           {produtoInicial.map((produto) => (
-            <Cards produto={produto} />
+            <div
+              className={`${isSingleItem ? styles.singleItem : styles.topRow}`}
+              key={produto.id}
+            >
+              <Cards produto={produto} />
+            </div>
           ))}
         </section>
       </main>

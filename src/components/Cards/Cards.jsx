@@ -9,8 +9,9 @@ export const Cards = ({ produto }) => {
       currency: "BRL",
     }).format(moeda);
   };
+
   return (
-    <div className={estilos.card_item} key={produto.id}>
+    <div className={`${estilos.card_item}`}>
       <figure className={estilos.figure}>
         <Image
           src={produto.imagem}
